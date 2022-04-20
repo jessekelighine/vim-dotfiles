@@ -1,0 +1,43 @@
+[submodule "pack/color/start/miramare"]
+	path = pack/color/start/miramare
+	url = https://github.com/franbach/miramare
+[submodule "pack/color/start/everforest"]
+	path = pack/color/start/everforest
+	url = https://github.com/sainnhe/everforest
+[submodule "pack/main/start/vim-indentwise"]
+	path = pack/main/start/vim-indentwise
+	url = https://github.com/jeetsukumaran/vim-indentwise
+[submodule "pack/main/start/vim-indent-object"]
+	path = pack/main/start/vim-indent-object
+	url = https://github.com/michaeljsmith/vim-indent-object
+[submodule "pack/main/start/vim-surround"]
+	path = pack/main/start/vim-surround
+	url = https://github.com/tpope/vim-surround
+[submodule "pack/main/start/vim-commentary"]
+	path = pack/main/start/vim-commentary
+	url = https://github.com/tpope/vim-commentary
+[submodule "pack/main/start/vim-repeat"]
+	path = pack/main/start/vim-repeat
+	url = https://github.com/tpope/vim-repeat
+[submodule "pack/main/start/vim-vinegar"]
+	path = pack/main/start/vim-vinegar
+	url = https://github.com/tpope/vim-vinegar
+[submodule "pack/main/start/fzf.vim"]
+	path = pack/main/start/fzf.vim
+	url = https://github.com/junegunn/fzf.vim
+[submodule "pack/main/start/vim-peekaboo"]
+	path = pack/main/start/vim-peekaboo
+	url = https://github.com/junegunn/vim-peekaboo
+[submodule "pack/main/start/vim-easy-align"]
+	path = pack/main/start/vim-easy-align
+	url = https://github.com/junegunn/vim-easy-align
+[submodule "pack/main/start/undotree"]
+	path = pack/main/start/undotree
+	url = https://github.com/mbbill/undotree
+[submodule "pack/main/start/targets.vim"]
+	path = pack/main/start/targets.vim
+	url = https://github.com/wellle/targets.vim
+[submodule "pack/lang/start/Nvim-R"]
+	path = pack/lang/start/Nvim-R
+	url = https://github.com/jalvesaq/Nvim-R
+	branch = stable
