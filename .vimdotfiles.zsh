@@ -19,3 +19,4 @@ git add ginit.vim
 git add init.vim
 git add notes.md
 git add .vimdotfiles.zsh
+git add README.md
