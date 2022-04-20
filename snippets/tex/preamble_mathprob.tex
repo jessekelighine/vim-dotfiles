@@ -1,0 +1,30 @@
+%%% Probability %%%
+\let\Pr\relax
+\DeclareMathOperator{\Pr}{Pr}
+\DeclareMathOperator{\Exp}{\mathbb{E}}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator{\Corr}{\rho}
+\newcommand{\E}[2][]{\Exp_{#1}\!\left[#2\right]}   % expectation
+\newcommand{\var}[1]{\Var\!\left(#1\right)}        % variance
+\newcommand{\cov}[2][]{\Cov_{#1}\!\left(#2\right)} % covariance
+\newcommand{\corr}[1]{\Corr\!\left(#1\right)}      % corrlation
+\newcommand{\pr}[2][]{\Pr_{#1}\!\left\{#2\right\}} % probability
+\newcommand{\given}[1][]{\,#1|\,}                  % conditional probability
+\newcommand{\io}{\;\text{i.o.}}                    % infinity often
+%<--------------------------------------------------------------------------->%
+%%% Convergence and Relations %%%
+\newcommand{\iidto}{\overset{\text{\scriptsize iid}}{\sim}}
+\newcommand{\asim}{\overset{\scriptsize A}{\sim}}
+\newcommand{\asto}{\overset{as}{\longrightarrow}}  % almost surely to
+\newcommand{\pto}{\overset{p}{\longrightarrow}}    % probability to
+\newcommand{\dto}{\overset{d}{\longrightarrow}}    % distribution to
+\newcommand{\wto}{\Rightarrow}                     % measure to
+%<--------------------------------------------------------------------------->%
+%%% Distributions %%%
+\newcommand{\poi}[1]{\mathrm{Poisson}(#1)}                 % Poisson distribution
+\newcommand{\binomial}[1]{\mathrm{Binomial}(#1)}           % Binomial distribution
+\newcommand{\bernoulli}[1]{\mathrm{Bernoulli}(#1)}         % Bernoulli distribution
+\newcommand{\normal}[2][]{\mathcal{N}_{#1}\left(#2\right)} % normal distribution
+\newcommand{\uniform}[1]{\mathcal{U}(#1)}                  % uniform distribution
+%<--------------------------------------------------------------------------->%
