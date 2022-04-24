@@ -1,5 +1,5 @@
 " ~/.vim/after/syntax/tex/beamer.vim
 
-syntax match TexBeamerEnv "{\zsframe\ze}" contained
+syntax match BeamerEnv "{\zsframe\ze}" contained
 
-highlight def link TexBeamerEnv Blue
+highlight def link BeamerEnv Blue

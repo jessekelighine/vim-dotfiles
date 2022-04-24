@@ -1,3 +1,6 @@
+" ~/.config/nvim/after/syntax/markdown.vim
+" ~/.config/nvim/syntax/markdown.vim
+
 " Minimum highlighting of yaml header (copied from vim82)
 syn match  rmdYamlFieldTtl  /^\s*\zs[a-zA-Z0-9-]*\ze:/ contained
 syn match  rmdYamlFieldTtl  /^\s*-\s*\zs\w*\ze:/ contained

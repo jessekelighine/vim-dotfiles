@@ -38,6 +38,7 @@ inoremap <C-ScrollWheelUp>    <nop>
 inoremap <ScrollWheelDown>    <nop>
 inoremap <S-ScrollWheelDown>  <nop>
 inoremap <C-ScrollWheelDown>  <nop>
+
 """ no scrolling: LEFT/RIGHT
 nnoremap <ScrollWheelLeft>    <nop>
 nnoremap <S-ScrollWheelLeft>  <nop>

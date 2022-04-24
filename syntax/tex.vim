@@ -17,7 +17,7 @@ syntax match   TexComment   "%.*" contains=@NoSpell,TexTODO
 syntax match   TexSubTodo   "%%.*" contains=TexTODO
 syntax match   TexSubIgnore "\\\(%\|{\|}\|\$\|#\|&\|!\|\^\|,\|;\|:\|'\|\"\|_\|=\||\|\[\|\]\)"
 syntax region  TexSubMaths  matchgroup=TexSubDollar start="\$" end="\$" contains=@NoSpell,TexCommand,TexSubIgnore,TexSubLR,TexSubRef
-syntax region  TexEnviron   start="\\\(begin\|end\){" end="}" contains=TexBeginEnd,TexDocEnv,TexTikzPicEnv,TexBeamerEnv,TexAmsthmEnv,TexFigEnv
+syntax region  TexEnviron   start="\\\(begin\|end\){" end="}" contains=TexBeginEnd,TexDocEnv,TikzPicEnv,BeamerEnv,AmsthmEnv,TexFigEnv
 
 highlight def link TexCommand   Green
 highlight def link TexComment   Comment

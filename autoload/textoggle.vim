@@ -61,7 +61,7 @@ function! textoggle#Master() abort
 endfunction
 
 " reload <buffer> key-mappings and toggles.
-function! textoggle#Reload() abort
+function! textoggle#Reload(local_vimrc=1) abort
 	imapclear <buffer>
 	nmapclear <buffer>
 	omapclear <buffer>
@@ -70,5 +70,5 @@ function! textoggle#Reload() abort
 	silent setlocal filetype=tex
 	call <SID>ReloadToggleDict()
 	" search for local .vimrc
-	call my#LocalVimrc()
+	if a:local_vimrc | call my#LocalVimrc() | endif
 endfunction

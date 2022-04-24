@@ -22,12 +22,13 @@ function! tex#Compile(type='xelatex', call_type='jobstart')
 	elseif a:type=="make"      | let l:cmd = 'make'
 	elseif a:type=="png"       | let l:cmd = 'xelatex '.@%.'; convert                                -density 600 '.expand("%:r").'.pdf '.expand("%:r").'.png'
 	elseif a:type=="png_white" | let l:cmd = 'xelatex '.@%.'; convert -background "#FFFFFF" -flatten -density 600 '.expand("%:r").'.pdf '.expand("%:r").'.png'
-	else | echom "--> ERROR: wrong `type`." | return | endif
+	elseif a:type==''          | echom "--> ERROR: wrong `type`." | return
+	else                       | let l:cmd = a:type               | endif
 	redraw | echom " ! ".l:cmd
 	" call command
 	if     a:call_type=='jobstart' | call jobstart(l:cmd)
-	elseif a:call_type=='!'        | exec '!'.l:cmd
 	elseif a:call_type=='termopen' | call tex#TerminalOpen(l:cmd)
+	elseif a:call_type=='!'        | exec '!'.l:cmd
 	else | echom "--> ERROR: wrong `call_type`." | return | endif
 endfunction
 

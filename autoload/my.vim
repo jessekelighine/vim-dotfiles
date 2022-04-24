@@ -22,12 +22,6 @@ function! my#GetDate()
 	echom l:return | return l:return
 endfunction
 
-" get path
-function! my#pwd(type='p')
-	let l:return = expand('%:'.a:type)
-	echom l:return | return l:return
-endfunction
-
 " toggles spelling, ignoring Chinese characters.
 function! my#ChineseSpelling(de=0)
 	set spell!
@@ -107,20 +101,22 @@ function! my#DeletePair()
 	call cursor(l:l1,l:c1) | norm x
 endfunction
 
-" delete surrounding function calls: 'print(...)' --> '...'.
-" Testing: funcOne(aa, funcTwo(bb, funcThree(cc)), dd, funcFour(funcFive(ee)), ff)
+" Delete surrounding function calls: 'print(...)' --> '...'. A function assumes
+" the form "<HEAD><BODY>\{-}<SPACE>\{-}<BRACKETS_OPEN>...<BRACKETS_CLOSE>".
+" Testing: funcOne(aa, funcTwo (bb, funcThree(cc)), dd, funcFour (hh, funcFive (ee), gg), ff)
 function! my#DelFuncCall(head='[a-zA-Z]', body='[a-zA-Z0-9]', brackets='()')
 	let l:col  = col('.') - 1
 	let l:line = getline('.')
 	for l:i in range(strlen(l:line))
 		let l:char = l:line[l:col + l:i]
 		if  l:char=~a:head && l:i==0 | continue | endif
+		if  l:char==' '              | continue | endif
 		if  l:char=~a:body           | continue | endif
 		if  l:char==a:brackets[0]    | break    | endif
 		execu 'norm va'.a:brackets[0]."o\<Esc>"
 		break
 	endfor
-	call search(a:head.a:body.'\{-}'.a:brackets[0], 'cb')
+	call search(a:head.a:body.'\{-}'.'\s\{-}'.a:brackets[0], 'cb')
 	exec 'norm dt'.a:brackets[0]
 	call my#DeletePair()
 endfunction

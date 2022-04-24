@@ -67,11 +67,6 @@ call everforest#highlight('markdownItalic', s:palette.blue,   s:palette.none, 'i
 call everforest#highlight('markdownBold',   s:palette.purple, s:palette.none, 'bold')
 ```
 
-# Git checklist
-
-- [vimd](~/.vimdotfiles.zsh)
-- [dotf](~/.dotfiles.zsh)
-
 # Indent files
 
 - [How to write indent files](https://psy.swansea.ac.uk/staff/carter/vim/vim_indent.htm)
