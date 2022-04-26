@@ -25,15 +25,9 @@
 [submodule "pack/main/start/fzf.vim"]
 	path = pack/main/start/fzf.vim
 	url = https://github.com/junegunn/fzf.vim
-[submodule "pack/main/start/vim-peekaboo"]
-	path = pack/main/start/vim-peekaboo
-	url = https://github.com/junegunn/vim-peekaboo
 [submodule "pack/main/start/vim-easy-align"]
 	path = pack/main/start/vim-easy-align
 	url = https://github.com/junegunn/vim-easy-align
-[submodule "pack/main/start/undotree"]
-	path = pack/main/start/undotree
-	url = https://github.com/mbbill/undotree
 [submodule "pack/main/start/targets.vim"]
 	path = pack/main/start/targets.vim
 	url = https://github.com/wellle/targets.vim

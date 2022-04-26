@@ -89,36 +89,23 @@ function! my#MakeRoom(direction,number=1)
 	call cursor(l:line, l:col)
 endfunction
 
-" delete paried characters.
-" This function is written for cases where "%" works but "ds" (by vim-surround)
-" does not.  This is the case for all matched Chinese characters, e.g.
-" fill-width brackets, Chinese quotes, etc.
-function! my#DeletePair()
-	let [ l:l1, l:c1 ] = [ line("."), col(".") ] | norm %
-	let [ l:l2, l:c2 ] = [ line("."), col(".") ] | norm %
-	if l:l1==l:l2 && l:c1>l:c2 | let [l:c1,l:c2] = [l:c2,l:c1] | endif
-	call cursor(l:l2,l:c2) | norm x
-	call cursor(l:l1,l:c1) | norm x
-endfunction
-
 " Delete surrounding function calls: 'print(...)' --> '...'. A function assumes
-" the form "<HEAD><BODY>\{-}<SPACE>\{-}<BRACKETS_OPEN>...<BRACKETS_CLOSE>".
-" Testing: funcOne(aa, funcTwo (bb, funcThree(cc)), dd, funcFour (hh, funcFive (ee), gg), ff)
+" the form "<HEAD><BODY>\{-}<BRACKETS_OPEN>...<BRACKETS_CLOSE>".
+" Testing: funcOne(aa, funcTwo(bb, funcThree(cc)), dd, funcFour(hh, funcFive(ee), gg), ff)
 function! my#DelFuncCall(head='[a-zA-Z]', body='[a-zA-Z0-9]', brackets='()')
-	let l:col  = col('.') - 1
-	let l:line = getline('.')
+	let l:col  = col(".") - 1
+	let l:line = getline(".")
 	for l:i in range(strlen(l:line))
 		let l:char = l:line[l:col + l:i]
 		if  l:char=~a:head && l:i==0 | continue | endif
-		if  l:char==' '              | continue | endif
 		if  l:char=~a:body           | continue | endif
 		if  l:char==a:brackets[0]    | break    | endif
 		execu 'norm va'.a:brackets[0]."o\<Esc>"
 		break
 	endfor
-	call search(a:head.a:body.'\{-}'.'\s\{-}'.a:brackets[0], 'cb')
+	call search(a:head.a:body.'\{-}'.a:brackets[0], 'cb')
 	exec 'norm dt'.a:brackets[0]
-	call my#DeletePair()
+	call surround#Delete()
 endfunction
 
 " highlight git merge conflict.

@@ -1,7 +1,7 @@
 " ~/.config/nvim/ftplugin/csv.vim
 " ~/.config/nvim/autoload/csv.vim
 
-setlocal noexpandtab shiftwidth=15 softtabstop=15 tabstop=15
+setlocal noexpandtab shiftwidth=16 softtabstop=16 tabstop=16
 
 nnoremap <buffer> <F1>      :tabnew ~/.config/nvim/ftplugin/csv.vim<CR>
 nnoremap <buffer> <F2>      :tabnew ~/.config/nvim/after/syntax/csv.vim<CR>
@@ -16,8 +16,8 @@ let b:csv_column_name         = ''
 let b:csv_total_column_number = 0
 let g:csv_register            = '9'
 
-command! -buffer -nargs=* Delim          :call csv#SetCsvDelim(<args>)
-command! -buffer -nargs=? HiCol          :call csv#HighlightColumn(<args>)
-command! -buffer -nargs=0 InitializeCSV  :call csv#InitializeCSV()
+command! -buffer -nargs=* Delim         :call csv#SetCsvDelim(<args>)
+command! -buffer -nargs=? HiCol         :call csv#HighlightColumn(<args>)
+command! -buffer -nargs=0 InitializeCSV :call csv#InitializeCSV()
 
 call csv#InitializeCSV()

@@ -3,7 +3,7 @@
 nnoremap <silent> <Plug>(ChineseSpelling)  :call my#ChineseSpelling()<CR>
 nnoremap <silent> <Plug>(MakeRoomAbove)    :<C-U>exe "call my#MakeRoom('above',".v:count1.")"<CR>
 nnoremap <silent> <Plug>(MakeRoomBelow)    :<C-U>exe "call my#MakeRoom('below',".v:count1.")"<CR>
-nnoremap <silent> <Plug>(DeletePair)       :call my#DeletePair()<CR>
+nnoremap <silent> <Plug>(DeletePair)       :call surround#Delete()<CR>
 nnoremap <silent> <Plug>(ToggleLineNumber) :call my#ToggleLineNumber()<CR>
 
 command! -nargs=1 TabSize                  :call my#TabSize(<args>)
