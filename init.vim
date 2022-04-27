@@ -29,13 +29,6 @@
 	nnoremap <C-F> :Lines<CR>
 	" nnoremap <C-B> :Buffers<CR>
 	nnoremap <C-B> :ls<CR>:buffer<Space>
-" vim-indentwise
-	nmap [l <Plug>(IndentWisePreviousEqualIndent)
-	nmap ]l <Plug>(IndentWiseNextEqualIndent)
-	xmap [l <Plug>(IndentWisePreviousEqualIndent)
-	xmap ]l <Plug>(IndentWiseNextEqualIndent)
-" undotree
-	nnoremap <leader>u :UndotreeToggle<CR>
 
 language en_US.UTF-8
 filetype plugin on

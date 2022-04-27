@@ -4,12 +4,6 @@
 [submodule "pack/color/start/everforest"]
 	path = pack/color/start/everforest
 	url = https://github.com/sainnhe/everforest
-[submodule "pack/main/start/vim-indentwise"]
-	path = pack/main/start/vim-indentwise
-	url = https://github.com/jeetsukumaran/vim-indentwise
-[submodule "pack/main/start/vim-indent-object"]
-	path = pack/main/start/vim-indent-object
-	url = https://github.com/michaeljsmith/vim-indent-object
 [submodule "pack/main/start/vim-surround"]
 	path = pack/main/start/vim-surround
 	url = https://github.com/tpope/vim-surround
