@@ -63,12 +63,11 @@ endfunction
 function! tex#Quotes(code, double) abort
 	let [ l:begin , l:end ] = [ repeat("`",(a:double?2:1)) , repeat("'",(a:double?2:1)) ]
 	call search(l:begin,"bcW") | exec "norm ".repeat('l',(a:double?2:1))
-	if     a:code=="i"                                 | call search(l:end, "sW") | exec "norm hv`'"
-	elseif a:code=="a" &&  a:double | exec "norm 2h"   | call search(l:end,"seW") | exec "norm v`'"
-	elseif a:code=="q" &&  a:double | exec "norm hvhx" | call search(l:end,"seW") | exec "norm vh"
-	elseif a:code=="a" && !a:double | exec "norm 1h"   | call search(l:end,"seW") | exec "norm v`'"
-	elseif a:code=="q" && !a:double | exec "norm hvx"  | call search(l:end,"seW") | exec "norm v"
-	endif
+	if a:code=="i"                                 | call search(l:end, "sW") | exec "norm hv`'"
+	if a:code=="a" &&  a:double | exec "norm 2h"   | call search(l:end,"seW") | exec "norm v`'"
+	if a:code=="q" &&  a:double | exec "norm hvhx" | call search(l:end,"seW") | exec "norm vh"
+	if a:code=="a" && !a:double | exec "norm 1h"   | call search(l:end,"seW") | exec "norm v`'"
+	if a:code=="q" && !a:double | exec "norm hvx"  | call search(l:end,"seW") | exec "norm v"
 endfunction
 
 "##############################################################################

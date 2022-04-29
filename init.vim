@@ -25,10 +25,10 @@
 	let $FZF_DEFAULT_COMMAND = "rg --files --hidden"
 	let g:fzf_preview_window = ['right:40%']
 	let g:fzf_layout = { 'down': '~20%' }
-	nnoremap <C-T> :Files<CR>
-	nnoremap <C-F> :Lines<CR>
 	" nnoremap <C-B> :Buffers<CR>
 	nnoremap <C-B> :ls<CR>:buffer<Space>
+	nnoremap <C-T> :Files<CR>
+	nnoremap <C-F> :Lines<CR>
 
 language en_US.UTF-8
 filetype plugin on

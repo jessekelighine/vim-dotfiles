@@ -29,3 +29,6 @@
 	path = pack/lang/start/Nvim-R
 	url = https://github.com/jalvesaq/Nvim-R
 	branch = stable
+[submodule "pack/main/start/vindent.vim"]
+	path = pack/main/start/vindent.vim
+	url = https://github.com/jessekelighine/vindent.vim

@@ -2,6 +2,7 @@
 
 # get all the installed packages of latex.
 tlmgr list --only-installed > pack/lang/opt/tex/PACKAGES.txt
+
 git add .
 
 # git add after/

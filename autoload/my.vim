@@ -57,18 +57,6 @@ function! my#RemoveTrailingSpaces()
 	call setpos('.',l:pos)
 endfunction
 
-" rough Chinese word count (through counting non-ASCII characters).
-function! my#ChineseWordCount()
-	try   | %s/[^\x00-\xff]//gn
-	catch | redraw | echom "--> No Chinese words found."
-	endtry
-endfunction
-
-" split long Chinese sentences by punctuation.
-function! my#SplitChineseSentence() range
-	s/\([，。？！；]\)\n\{0,1}/\1\r/g
-endfunction
-
 " change the display width of a tab.
 function! my#TabSize(size)
 	exec "setlocal noexpandtab"
