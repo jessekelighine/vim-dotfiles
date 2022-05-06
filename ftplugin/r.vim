@@ -23,7 +23,7 @@ inoremap <buffer> :lib<Tab>   <Esc>:call my#GetSnippets('r','r_library.r')<CR>
 inoremap <buffer> :ggs<Tab>   <Esc>:call my#GetSnippets('r','r_ggsave.r')<CR>
 inoremap <buffer> :ggch<Tab>  <Esc>:call my#GetSnippets('r','r_ggplotChinese.r')<CR>
 inoremap <buffer> :se<Tab>    <Esc>:call my#GetSnippets('r','r_robust.r')<CR>
-inoremap <buffer> :log<Tab>   <Esc>:call my#GetSnippets('r','r_log.r')<CR>
+inoremap <buffer> :log<Tab>   <Esc>:call my#GetSnippets('r','r_logfile.r')<CR>
 inoremap <buffer> :cl<Tab>    <Esc>:call my#GetSnippets('r','r_consolelog.r')<CR>
 
 " Mappings: mappings.

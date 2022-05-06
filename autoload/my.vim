@@ -147,3 +147,8 @@ function! my#TestEncoding()
 		call input('Press any key to continue')
 	endfor
 endfunction
+
+" Get the character at line and column, defaults the character under the cursor.
+function! my#GetChar(line=line('.'),col=col('.'))
+	return matchstr(getline(a:line), '\%' . a:col . 'c.')
+endfunction

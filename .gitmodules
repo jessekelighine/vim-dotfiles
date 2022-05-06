@@ -13,9 +13,6 @@
 [submodule "pack/main/start/vim-repeat"]
 	path = pack/main/start/vim-repeat
 	url = https://github.com/tpope/vim-repeat
-[submodule "pack/main/start/vim-vinegar"]
-	path = pack/main/start/vim-vinegar
-	url = https://github.com/tpope/vim-vinegar
 [submodule "pack/main/start/fzf.vim"]
 	path = pack/main/start/fzf.vim
 	url = https://github.com/junegunn/fzf.vim
@@ -32,3 +29,6 @@
 [submodule "pack/main/start/vindent.vim"]
 	path = pack/main/start/vindent.vim
 	url = https://github.com/jessekelighine/vindent.vim
+[submodule "pack/main/start/vim-vinegar"]
+	path = pack/main/start/vim-vinegar
+	url = https://github.com/tpope/vim-vinegar

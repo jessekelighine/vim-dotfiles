@@ -25,10 +25,17 @@
 	let $FZF_DEFAULT_COMMAND = "rg --files --hidden"
 	let g:fzf_preview_window = ['right:40%']
 	let g:fzf_layout = { 'down': '~20%' }
-	" nnoremap <C-B> :Buffers<CR>
-	nnoremap <C-B> :ls<CR>:buffer<Space>
+	nnoremap <C-B> :Buffers<CR>
 	nnoremap <C-T> :Files<CR>
 	nnoremap <C-F> :Lines<CR>
+" vindent.vim
+	let g:vindent_motion_prev = '[l'
+	let g:vindent_motion_next = ']l'
+	let g:vindent_object_ii   = 'ii'
+	let g:vindent_object_iI   = 'iI'
+	let g:vindent_object_ai   = 'ai'
+	let g:vindent_object_aI   = 'aI'
+	let g:vindent_tabstop     = &tabstop
 
 language en_US.UTF-8
 filetype plugin on
@@ -42,25 +49,21 @@ let &t_SR="\e[4 q"
 
 nnoremap Y      y$
 nnoremap zS     zszH
+inoremap <C-L>  <C-G>u<Esc>[s1z=`]a<C-G>u
 nnoremap <C-N>  :tabnew<CR>
-nnoremap <C-J>  <C-W>j
+nnoremap <Up>   gk
+nnoremap <Down> gj
+nnoremap <C-j>  <C-W>j
 nnoremap <C-k>  <C-W>k
 nnoremap <C-h>  <C-W>h
 nnoremap <C-l>  <C-W>l
-nnoremap <Up>   gk
-nnoremap <Down> gj
-inoremap jk     <Esc>
-inoremap kj     <Esc>
-inoremap <C-L>  <C-G>u<Esc>[s1z=`]a<C-G>u
-inoremap <C-W>  <C-G>u<C-W>
-inoremap <C-U>  <C-G>u<C-U>
-inoremap (<Tab> <C-G>u()<Left>
-inoremap [<Tab> <C-G>u[]<Left>
-inoremap {<Tab> <C-G>u{}<Left>
-inoremap <<Tab> <C-G>u<><Left>
-inoremap '<Tab> <C-G>u''<Left>
-inoremap `<Tab> <C-G>u``<Left>
-inoremap "<Tab> <C-G>u""<Left>
+inoremap (<Tab> ()<Left>
+inoremap [<Tab> []<Left>
+inoremap {<Tab> {}<Left>
+inoremap <<Tab> <><Left>
+inoremap '<Tab> ''<Left>
+inoremap `<Tab> ``<Left>
+inoremap "<Tab> ""<Left>
 xnoremap >      >gv
 xnoremap <      <gv
 xnoremap ''     "*y
@@ -69,23 +72,25 @@ xnoremap <silent> p         ""p:let @"=@0<CR>
 nnoremap <silent> <leader>l :set list!<CR>
 nnoremap <silent> <CR>      :noh<Bar>redraw!<Bar>echo''<CR>
 nnoremap <silent> <F12>     :tabnew ~/.config/nvim/init.vim<CR>
-nnoremap <silent> <S-Right> :resize+5<CR>
-nnoremap <silent> <S-Left>  :resize-5<CR>
-nnoremap <silent> ]q        :cnext<CR>
-nnoremap <silent> [q        :cprevious<CR>
-nnoremap <silent> ]Q        :clast<CR>
-nnoremap <silent> [Q        :cfirst<CR>
-nnoremap <silent> [t        :tabprev<CR>
-nnoremap <silent> ]t        :tabnext<CR>
-nnoremap <silent> [b        :bprev<CR>
-nnoremap <silent> ]b        :bnext<CR>
-nnoremap <silent> [B        :bfirst<CR>
-nnoremap <silent> ]B        :blast<CR>
-nmap [<Space>    <Plug>(MakeRoomAbove)
-nmap ]<Space>    <Plug>(MakeRoomBelow)
-nmap <leader>s   <Plug>(ChineseSpelling)
-nmap <leader>n   <Plug>(ToggleLineNumber)
-nmap <nowait> dm <Plug>(DeletePair)
+nnoremap <s-right> :resize+5<cr>
+nnoremap <s-left>  :resize-5<cr>
+nnoremap ]q :cnext<cr>
+nnoremap [q :cprevious<cr>
+nnoremap ]Q :clast<cr>
+nnoremap [Q :cfirst<cr>
+nnoremap [t :tabprev<cr>
+nnoremap ]t :tabnext<cr>
+nnoremap [T :tabfirst<cr>
+nnoremap ]T :tablast<cr>
+nnoremap [b :bprev<cr>
+nnoremap ]b :bnext<cr>
+nnoremap [B :bfirst<cr>
+nnoremap ]B :blast<cr>
+nmap [<Space>  <Plug>(MakeRoomAbove)
+nmap ]<Space>  <Plug>(MakeRoomBelow)
+nmap <leader>s <Plug>(ChineseSpelling)
+nmap <leader>n <Plug>(ToggleLineNumber)
+nmap dm        <Plug>(DeletePair)
 
 set encoding=utf-8
 set spelllang=en
@@ -97,7 +102,7 @@ set autoread
 set nowrap
 set wildmenu wildignorecase
 set display=truncate " long line will be displayed rather than '@@@'
-set colorcolumn=80
+set colorcolumn=80,120
 set laststatus=2
 set scroll=5 scrolloff=1
 set number relativenumber nonumber
@@ -111,7 +116,7 @@ set autochdir
 set history=1000
 set formatoptions+=jnmB " line joining for CJK characters
 set listchars=tab:┊\ ,trail:–,extends:»,precedes:«,nbsp:+,eol:¬,space:·
-set mps+=（:） mps+=「:」 mps+=『:』 mps+=《:》 mps+=【:】
+set matchpairs+=（:） mps+=「:」 mps+=『:』 mps+=《:》 mps+=【:】
 set synmaxcol=0 " 300
 set splitbelow
 set nrformats+=alpha
@@ -122,7 +127,7 @@ let g:netrw_liststyle=3
 let g:netrw_altv=1
 let g:html_number_lines=1
 set updatetime=300
-set shortmess-=S " Show number of matches (alternative: vim-searchindex)
+set shortmess-=S " Show number of matches 
 
 augroup CommentAndIndent
 	autocmd!
