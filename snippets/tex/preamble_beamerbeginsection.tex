@@ -1,12 +1,24 @@
-%%% Beamer Begin Section %%%
+%%% Beamer Section Begin %%%
 \AtBeginSection[]{
-\begin{frame}
+	\begin{frame}
 	\vfill
 	\centering
 	\begin{beamercolorbox}[sep=8pt,center]{title}
-		\usebeamerfont{title}\textbf{\insertsectionnumber\protect~\insertsectionhead}\par%
+		\usebeamerfont{title}\textbf{\insertsectionhead}\par%
 	\end{beamercolorbox}
 	\vfill
-\end{frame}
+	\end{frame}
+}
+\AtBeginSubsection[]{
+	\begin{frame}
+	\vfill
+	\centering
+	\begin{beamercolorbox}[sep=8pt,center]{title}
+		\usebeamerfont{title}\textbf{\insertsectionhead}\par%
+		\vspace{0.5em}%
+		\usebeamerfont{title}\insertsubsectionhead\par%
+	\end{beamercolorbox}
+	\vfill
+	\end{frame}
 }
 %<--------------------------------------------------------------------------->%

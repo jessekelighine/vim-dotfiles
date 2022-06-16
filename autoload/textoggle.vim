@@ -14,8 +14,8 @@ let g:textoggle_dict = {
 
 " Reload the toggle dictionary. Helper function for textoggle#Reload().
 function! <SID>ReloadToggleDict() abort
-	let l:syntax = 'source ~/.local/share/nvim/site/pack/lang/opt/tex/syntax/'
-	let l:plugin = 'source ~/.local/share/nvim/site/pack/lang/opt/tex/ftplugin/'
+	let l:syntax = 'source ~/.config/nvim/pack/lang/opt/tex/syntax/'
+	let l:plugin = 'source ~/.config/nvim/pack/lang/opt/tex/ftplugin/'
 	for l:key in keys(g:textoggle_dict)
 		if g:textoggle_dict[l:key]['status']
 			if g:textoggle_dict[l:key]['syntax']!='' | exec l:syntax.g:textoggle_dict[l:key]['syntax'] | endif

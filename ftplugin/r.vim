@@ -34,3 +34,5 @@ inoremap <buffer> <S-M><CR>  <Esc>:call r#PipeExpand('CR')<CR>
 nnoremap <buffer> <leader>;  :call my#DelFuncCall('[a-zA-Z]','[a-zA-Z0-9._]')<CR>
 inoremap <buffer> :date<Tab> <C-R>=my#GetDate()<CR>
 inoremap <buffer> {<CR>      {}<esc>i<CR><esc><S-O>
+inoremap <buffer> %<Tab>     %%<Left>
+inoremap <buffer> ^<Tab>     ^()<Left>

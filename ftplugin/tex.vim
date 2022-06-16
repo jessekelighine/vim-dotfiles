@@ -8,7 +8,7 @@
 
 " SETTINGS: fast syntax, comment, spell, indent environment.
 packadd  matchit
-setlocal synmaxcol=150
+setlocal synmaxcol=200
 setlocal commentstring=%\ %s
 setlocal spellfile=~/.config/nvim/spell/en.utf-8.add,~/.config/nvim/spell/latex.utf-8.add
 setlocal foldmethod=manual
@@ -31,7 +31,7 @@ let b:surround_103="($\r$)"
 nnoremap <buffer> <F1> :tabnew ~/.config/nvim/ftplugin/tex.vim<CR>
 nnoremap <buffer> <F2> :tabnew ~/.config/nvim/syntax/tex.vim<CR>
 nnoremap <buffer> <F5> :call tex#Compile("xelatex",'jobstart')<CR>
-nnoremap <buffer> <F6> :call tex#Compile("xelatex",'termopen')<CR>
+nnoremap <buffer> <F6> :call tex#Compile("xelatexmk",'termopen')<CR>
 " nnoremap <buffer> <F5> :call tex#Compile("xelatex",'!')<CR><CR>
 " nnoremap <buffer> <F6> :call tex#Compile("latex")<CR>
 " nnoremap <buffer> <F6> :call tex#Compile("cwtex")<CR>
@@ -54,6 +54,7 @@ command! -buffer -nargs=0 ReloadTeX    :call textoggle#Reload()
 command! -buffer -nargs=0 ShowToggles  :call textoggle#Show()
 command! -buffer -nargs=0 ClearToggles :call textoggle#Clear()
 command! -buffer -nargs=0 RemoveJunk   :! latexmk -C %:r
+command! -buffer -nargs=0 FindSection  :call tex#FindSection()
 
 " COMPLETETION: `Lables` and `Biblography` complete settings.
 setlocal completefunc=texcomplete#Label
@@ -137,7 +138,7 @@ inoremap <buffer> \ma<Tab>        <Esc>:call my#GetSnippets('tex','indoc_matrix.
 
 " FIGURES AND TABLES: insert figure/table environments.
 inoremap <buffer> \btab<Tab>  <Esc>:call my#GetSnippets('tex','indoc_envtable.tex')<CR>
-inoremap <buffer> \btabc<Tab> <Esc>:call my#GetSnippets('tex','indoc_envtable_csv.tex',0)<CR>
+inoremap <buffer> \csv<Tab> <Esc>:call my#GetSnippets('tex','indoc_envtable_csv.tex',0)<CR>
 inoremap <buffer> \bfig<Tab>  <Esc>:call my#GetSnippets('tex','indoc_envfigure.tex')<CR>
 inoremap <buffer> \mini<Tab>  <Esc>:call my#GetSnippets('tex','indoc_minipage.tex')<CR>
 inoremap <buffer> \tab<Tab>   <Esc>:call my#GetSnippets('tex','indoc_table.tex')<CR>

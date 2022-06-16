@@ -2,7 +2,7 @@
 
 " GENERAL SETTINGS: disables 8-wide tab, sensible listchars.
 " let g:python_recommended_style = 0
-" setl listchars=tab:┊\ ,trail:·,extends:»,precedes:«,nbsp:+
+setl listchars=tab:┊\ ,trail:·,extends:»,precedes:«,nbsp:+
 
 " FUNCTION KEYS: compile.
 nnoremap <buffer> <F1> :tabnew ~/.config/nvim/ftplugin/python.vim<CR>

@@ -99,9 +99,9 @@ endfunction
 " highlight git merge conflict.
 let g:my_git_conflict_highlight_toggle = 1
 function! my#ConflictHighlight()
-	syntax match GitConflict "^>>>>>>>.*$"
 	syntax match GitConflict "^<<<<<<<.*$"
 	syntax match GitConflict "^=======$"
+	syntax match GitConflict "^>>>>>>>.*$"
 	if g:my_git_conflict_highlight_toggle
 		let g:my_git_conflict_highlight_toggle = 0
 		highlight GitConflict ctermfg=White ctermbg=Red guifg=White guibg=Red
@@ -111,6 +111,7 @@ function! my#ConflictHighlight()
 		silent syntax clear GitConflict
 		redraw | echom "--> Clear merge conflict highlight."
 	endif
+	exec "norm! /<<<<<<<\<CR>"
 endfunction
 
 " change the 'Last Modified' date automatically. The pattern provided must
@@ -152,3 +153,8 @@ endfunction
 function! my#GetChar(line=line('.'),col=col('.'))
 	return matchstr(getline(a:line), '\%' . a:col . 'c.')
 endfunction
+
+" function! CursorFocus()
+" 	set cursorline!
+" 	set cursorcolumn!
+" endfunction

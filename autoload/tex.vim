@@ -1,5 +1,21 @@
 " ~/.config/nvim/autoload/tex.vim
 
+" Print the line number (sub)sections.
+function! tex#FindSection() abort
+	let l:count = 0
+	let l:results = []
+	echo '  Goto   Line  Title'
+	echo repeat('=',79)
+	g/^\\\(sub\)\{0,2}section/
+				\ let l:temp = getline(".") |
+				\ let l:temp = substitute(l:temp,'\\subsection\*\{0,1}{\(.\{-}\)}','    \1','') |
+				\ let l:temp = substitute(l:temp,   '\\section\*\{0,1}{\(.\{-}\)}','\1','') |
+				\ echo printf("%6s %6s  %s",l:count,line("."),l:temp) |
+				\ call add(l:results,line(".")) |
+				\ let l:count += 1
+	exec "norm! ".l:results[input("--> Go to: ")]."G"
+endfunction
+
 " delete parenthesis modifiers (left/right,big,large,...).
 function! tex#DelLeftRight()
 	if getline(".")[col(".")-1] =~ '['.'()'.'\[\]'.'{}'.']'
@@ -63,11 +79,11 @@ endfunction
 function! tex#Quotes(code, double) abort
 	let [ l:begin , l:end ] = [ repeat("`",(a:double?2:1)) , repeat("'",(a:double?2:1)) ]
 	call search(l:begin,"bcW") | exec "norm ".repeat('l',(a:double?2:1))
-	if a:code=="i"                                 | call search(l:end, "sW") | exec "norm hv`'"
-	if a:code=="a" &&  a:double | exec "norm 2h"   | call search(l:end,"seW") | exec "norm v`'"
-	if a:code=="q" &&  a:double | exec "norm hvhx" | call search(l:end,"seW") | exec "norm vh"
-	if a:code=="a" && !a:double | exec "norm 1h"   | call search(l:end,"seW") | exec "norm v`'"
-	if a:code=="q" && !a:double | exec "norm hvx"  | call search(l:end,"seW") | exec "norm v"
+	if a:code=="i"                                 | call search(l:end, "sW") | exec "norm hv`'" | endif
+	if a:code=="a" &&  a:double | exec "norm 2h"   | call search(l:end,"seW") | exec "norm v`'"  | endif
+	if a:code=="q" &&  a:double | exec "norm hvhx" | call search(l:end,"seW") | exec "norm vh"   | endif
+	if a:code=="a" && !a:double | exec "norm 1h"   | call search(l:end,"seW") | exec "norm v`'"  | endif
+	if a:code=="q" && !a:double | exec "norm hvx"  | call search(l:end,"seW") | exec "norm v"    | endif
 endfunction
 
 "##############################################################################

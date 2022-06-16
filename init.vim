@@ -28,14 +28,31 @@
 	nnoremap <C-B> :Buffers<CR>
 	nnoremap <C-T> :Files<CR>
 	nnoremap <C-F> :Lines<CR>
+" undotree
+	nnoremap <leader>u :UndotreeToggle<CR>
 " vindent.vim
-	let g:vindent_motion_prev = '[l'
-	let g:vindent_motion_next = ']l'
-	let g:vindent_object_ii   = 'ii'
-	let g:vindent_object_iI   = 'iI'
-	let g:vindent_object_ai   = 'ai'
-	let g:vindent_object_aI   = 'aI'
-	let g:vindent_tabstop     = &tabstop
+	let g:vindent_motion_OO_prev = '[l'
+	let g:vindent_motion_OO_next = ']l'
+	let g:vindent_motion_less_prev = '[-'
+	let g:vindent_motion_less_next = ']-'
+	let g:vindent_motion_more_prev = '[='
+	let g:vindent_motion_more_next = ']='
+	let g:vindent_motion_diff_prev = '[;'
+	let g:vindent_motion_diff_next = '];'
+	let g:vindent_motion_XX_ss = '[P'
+	let g:vindent_motion_XX_se = ']P'
+	let g:vindent_motion_OX_ss = '[p'
+	let g:vindent_motion_OX_se = ']p'
+	let g:vindent_object_OO_ii = 'iI'
+	let g:vindent_object_XX_ii = 'ii'
+	let g:vindent_object_XX_ai = 'ai'
+	let g:vindent_object_XX_aI = 'aI'
+" my
+	nmap [<Space>  <Plug>(MakeRoomAbove)
+	nmap ]<Space>  <Plug>(MakeRoomBelow)
+	nmap <leader>s <Plug>(ChineseSpelling)
+	nmap <leader>n <Plug>(ToggleLineNumber)
+	nmap dm        <Plug>(DeletePair)
 
 language en_US.UTF-8
 filetype plugin on
@@ -68,10 +85,11 @@ xnoremap >      >gv
 xnoremap <      <gv
 xnoremap ''     "*y
 xnoremap //     y/\V<C-R>=escape(@",'/\')<CR><CR>
-xnoremap <silent> p         ""p:let @"=@0<CR>
+xnoremap <silent> p         pgvy
 nnoremap <silent> <leader>l :set list!<CR>
+nnoremap <silent> <leader>f :set cursorcolumn!<CR>:set cursorline!<CR>
 nnoremap <silent> <CR>      :noh<Bar>redraw!<Bar>echo''<CR>
-nnoremap <silent> <F12>     :tabnew ~/.config/nvim/init.vim<CR>
+nnoremap <silent> <F12>     :tabnew ~/.vimrc<CR>
 nnoremap <s-right> :resize+5<cr>
 nnoremap <s-left>  :resize-5<cr>
 nnoremap ]q :cnext<cr>
@@ -86,11 +104,6 @@ nnoremap [b :bprev<cr>
 nnoremap ]b :bnext<cr>
 nnoremap [B :bfirst<cr>
 nnoremap ]B :blast<cr>
-nmap [<Space>  <Plug>(MakeRoomAbove)
-nmap ]<Space>  <Plug>(MakeRoomBelow)
-nmap <leader>s <Plug>(ChineseSpelling)
-nmap <leader>n <Plug>(ToggleLineNumber)
-nmap dm        <Plug>(DeletePair)
 
 set encoding=utf-8
 set spelllang=en
@@ -116,7 +129,7 @@ set autochdir
 set history=1000
 set formatoptions+=jnmB " line joining for CJK characters
 set listchars=tab:┊\ ,trail:–,extends:»,precedes:«,nbsp:+,eol:¬,space:·
-set matchpairs+=（:） mps+=「:」 mps+=『:』 mps+=《:》 mps+=【:】
+set matchpairs+=（:） mps+=「:」 mps+=『:』 mps+=《:》 mps+=【:】 mps+=〈:〉
 set synmaxcol=0 " 300
 set splitbelow
 set nrformats+=alpha

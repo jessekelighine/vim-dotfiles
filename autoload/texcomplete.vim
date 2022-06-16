@@ -100,7 +100,7 @@ endfunction
 " the order they appeat in the bib file.
 function! texcomplete#Bib(findstart,base)
 	if a:findstart
-		return matchstrpos(getline('.'),'.*{')[2]
+		return matchstrpos(getline('.'),'.*\({\|,\)')[2]
 	else
 		let l:suggestions = []
 		if !g:texcomplete_lazy | call texcomplete#GenerateBib() | endif

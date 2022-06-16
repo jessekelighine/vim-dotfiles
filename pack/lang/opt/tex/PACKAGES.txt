@@ -46,6 +46,7 @@ i bidicontour: Bidi-aware coloured contour around text
 i bidipagegrid: Bidi-aware page grid in background
 i bidipresentation: Experimental bidi presentation
 i bidishadowtext: Bidi-aware shadow text
+i bigfoot: Footnotes for critical editions
 i bigintcalc: Integer calculations on very large numbers
 i bitset: Handle bit-vector datatype
 i blindtext: Producing 'blind' text for testing
@@ -315,6 +316,8 @@ i setspace: Set space between lines
 i shapes: Draw polygons, reentrant stars, and fractions in circles with MetaPost
 i simple-resume-cv: Template for a simple resume or curriculum vitae (CV), in XeLaTeX
 i simple-thesis-dissertation: Template for a simple thesis or dissertation (Ph.D. or master's degree) or technical report, in XeLaTeX
+i siunits: International System of Units
+i siunitx: A comprehensive (SI) units package
 i slideshow: Generate slideshow with MetaPost
 i splines: MetaPost macros for drawing cubic spline interpolants
 i standalone: Compile TeX pictures stand-alone or as part of a document

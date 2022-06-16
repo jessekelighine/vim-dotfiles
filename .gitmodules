@@ -26,9 +26,15 @@
 	path = pack/lang/start/Nvim-R
 	url = https://github.com/jalvesaq/Nvim-R
 	branch = stable
-[submodule "pack/main/start/vindent.vim"]
-	path = pack/main/start/vindent.vim
-	url = https://github.com/jessekelighine/vindent.vim
 [submodule "pack/main/start/vim-vinegar"]
 	path = pack/main/start/vim-vinegar
 	url = https://github.com/tpope/vim-vinegar
+[submodule "pack/main/start/undotree"]
+	path = pack/main/start/undotree
+	url = https://github.com/mbbill/undotree
+[submodule "pack/main/start/vim-peekaboo"]
+	path = pack/main/start/vim-peekaboo
+	url = https://github.com/junegunn/vim-peekaboo
+[submodule "pack/main/start/vindent.vim"]
+	path = pack/main/start/vindent.vim
+	url = https://github.com/jessekelighine/vindent.vim
